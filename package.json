@@ -1,0 +1,41 @@
+{
+  "name": "check-the-logs",
+  "version": "1.0.0",
+  "description": "You have been assigned to log monitoring.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint .",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frosty5689/check-the-logs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frosty5689/check-the-logs/issues"
+  },
+  "homepage": "https://github.com/frosty5689/check-the-logs#readme",
+  "devDependencies": {
+    "@swc/cli": "0.1.57",
+    "@swc/core": "1.3.10",
+    "@types/jest": "29.2.0",
+    "@types/node": "18.11.5",
+    "@typescript-eslint/eslint-plugin": "5.41.0",
+    "@typescript-eslint/parser": "5.41.0",
+    "eslint": "8.26.0",
+    "eslint-config-prettier": "8.5.0",
+    "husky": "8.0.1",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "rimraf": "3.0.2",
+    "ts-jest": "29.0.3",
+    "ts-node": "10.9.1",
+    "tslib": "2.4.0",
+    "typescript": "4.8.4"
+  }
+}
