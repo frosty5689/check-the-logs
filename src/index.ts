@@ -1,6 +1,6 @@
 import { parseLog } from './parser'
 import { writeLinesToFile } from './writer'
-
+import { formatEventId } from './csv'
 const start = async (): Promise<void> => {
   const args = process.argv.slice(2)
   const inputFilename = args?.[0] ?? 'input/data.log'
@@ -11,7 +11,7 @@ const start = async (): Promise<void> => {
     ({ dateTime, eventId, eventType, source, fullName, email }) =>
       [
         dateTime.toFormat('yyyy-LL-dd HH:mm:ss'),
-        eventId,
+        formatEventId(eventId),
         eventType,
         source,
         fullName,

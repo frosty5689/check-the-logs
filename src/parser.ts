@@ -1,7 +1,6 @@
 import fs from 'fs'
 import readline from 'readline'
 import { DateTime } from 'luxon'
-import { start } from 'repl'
 
 interface SeverityPart {
   severity: string
