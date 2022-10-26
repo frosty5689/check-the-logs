@@ -4,6 +4,49 @@ You have been assigned to log monitoring.
 
 You are provided with the log file `data.log`. The log file contains some strange formatting. Your job is to write a program to read from it to create a report.
 
+## Overview
+
+1. A log checker that produces a report in CSV.
+2. Written in TypeScript
+3. Unit tests run by Jest
+4. ESLint for linting
+5. Prettier for formatting
+6. Supports custom input (default: input/data.log) and output (default: output/data.log) filename using commandline arguments
+7. Supports custom severity filter (default: ERROR)
+8. Supports custom start date and end date filter using ISO 8601 string format (ex. 2011-10-05T14:48:00.000), assumes UTC
+9. Includes a Dockerfile for portable install
+10. Skips lines it cannot parse and continues
+
+## How to setup and run
+
+### Local dev
+
+1. Install Node v16 LTS either using `brew` or switch to it using `nvn`. Not tested on other version of Node YMMV.
+2. `npm install` in root directory to install all dependencies
+3. `npm run dev` to run using `ts-node` without transpiling with default arguments
+4. `npm run dev --help` for information on how to supply arguments to customize input, output, severity filter and start/end date range
+
+### Production
+
+1. `npm install` in root directory to install all dependencies
+2. `npm run build` to transpile to JavaScript using tsc
+3. `npm run start` to run production build inside `./dist`
+
+### Docker
+
+1. `docker build . -t check-the-logs`
+2. `docker run --rm -v $PWD/input:/usr/src/app/input -v $PWD/output:/usr/src/app/output check-the-logs`
+3. Feel free to change the volume mount as needed
+4. To pass arguments to the log parser while running in Docker, do something like this: `docker run --rm -v $PWD/input:/usr/src/app/input -v $PWD/output:/usr/src/app/output check-the-logs -- --help`
+
+### How to run tests
+
+1. `npm run test`
+
+### How to lint using ESLint
+
+1. `npm run lint`
+
 ## Log format
 
 Each line has the following fields in order:

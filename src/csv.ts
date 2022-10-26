@@ -1,5 +1,10 @@
-export const formatValue = (value: string): string => {
-  let escapedValue = value.replace('"', '""')
+import { LogEntry } from './parser'
+
+export const formatValue = (value: string | undefined): string | undefined => {
+  if (!value) {
+    return
+  }
+  let escapedValue = value.replaceAll('"', '""')
   if (/,|\n/.test(escapedValue)) {
     escapedValue = `"${escapedValue}"`
   }
@@ -17,4 +22,22 @@ export const formatEventId = (eventId: string): string => {
     formattedEventIdParts[formattedEventIdParts.length - 1] += last
   }
   return formattedEventIdParts.join('-')
+}
+
+export const logEntryToCsv = ({
+  dateTime,
+  eventId,
+  eventType,
+  source,
+  fullName,
+  email,
+}: LogEntry): string => {
+  return [
+    formatValue(dateTime.toFormat('yyyy-LL-dd HH:mm:ss')),
+    formatValue(formatEventId(eventId)),
+    formatValue(eventType),
+    formatValue(source),
+    formatValue(fullName),
+    formatValue(email),
+  ].join(',')
 }
