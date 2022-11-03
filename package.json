@@ -22,7 +22,7 @@
   "homepage": "https://github.com/frosty5689/check-the-logs#readme",
   "devDependencies": {
     "@swc/cli": "0.1.57",
-    "@swc/core": "1.3.10",
+    "@swc/core": "1.3.14",
     "@types/jest": "29.2.0",
     "@types/luxon": "3.0.2",
     "@types/node": "18.11.5",
